@@ -27,8 +27,7 @@ Landing page personal y profesional desarrollada con **Angular 19** que cumple c
 
 ### Herramientas de Desarrollo
 - **Angular CLI 19.1.5** - Tooling y scaffolding
-- **SCSS** - Preprocesador CSS con variables y mixins
-- **Zone.js 0.15.0** - Detección de cambios y async handling
+- 
 
 ### APIs del Navegador
 - **Intersection Observer API** - Detección de elementos visibles
