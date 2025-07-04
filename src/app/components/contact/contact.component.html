@@ -1,0 +1,18 @@
+<section id="contacto">
+  <h2>Contacto</h2>
+  <p>Puedes contactarme a través de:</p>
+  <ul>
+    <li>LinkedIn: <a href="https://linkedin.com/in/gamuridev" target="_blank">&#64;gamuridev</a></li>
+    <li>GitHub: <a href="https://github.com/gamurigm" target="_blank">&#64;gamurigm</a></li>
+    <li>Email: <strong>gamurigm&#64;gmail.com</strong></li>
+  </ul>
+  
+  <div class="iconos-sociales">
+    <a *ngFor="let link of socialLinks$ | async" 
+       [href]="link.url" 
+       target="_blank" 
+       [attr.aria-label]="link.name">
+      <i [class]="link.icon"></i>
+    </a>
+  </div>
+</section>

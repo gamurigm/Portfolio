@@ -1,0 +1,13 @@
+<header class="cabecera-fondo">
+  <div class="contenedor">
+    <div class="contenido-cabecera">
+      <h1 class="nombre">Gabriel Murillo Medina</h1>
+      <p>Desarrollador de Software</p>
+      <img src="web-proyecto/img/me.png" alt="Foto de perfil" class="foto-perfil">
+      <button id="theme-toggle" aria-label="Cambiar tema" (click)="toggleTheme()">
+        <i class="fas fa-sun" [style.display]="isDarkMode() ? 'none' : 'inline'"></i>
+        <i class="fas fa-moon" [style.display]="isDarkMode() ? 'inline' : 'none'"></i>
+      </button>
+    </div>
+  </div>
+</header>

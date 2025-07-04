@@ -1,0 +1,619 @@
+/* Estilos globales para el Portfolio Landing */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@400;500;600;700;800&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+:root {
+    /* 🎨 NUEVA PALETA DE COLORES */
+    /* Tema Claro - Colores principales */
+    --primary: #1C1678;           /* Púrpura oscuro - títulos y elementos principales */
+    --primary-alt: #8576FF;       /* Púrpura vibrante - gradientes y hover */
+    --accent: #7BC9FF;            /* Azul cielo - enlaces y botones */
+    --accent-secondary: #A3FFD6;   /* Verde menta - detalles y decoraciones */
+    
+    /* Tema Claro - Colores base */
+    --bg: #ffffff;
+    --text: #2C2C2C;              /* Texto más suave que negro puro */
+    --surface: #f8f9fa;           /* Superficie ligeramente más cálida */
+    --transition: 0.3s ease;
+    
+    /* Tema Oscuro - Adaptación de la paleta */
+    --bg-dark: #0F0B1F;           /* Fondo oscuro basado en el púrpura principal */
+    --surface-dark: #1A1332;      /* Superficie oscura complementaria */
+    --text-dark: #ffffff;
+    --primary-dark: #A3FFD6;      /* Verde menta para títulos en oscuro */
+    --accent-dark: #7BC9FF;       /* Azul cielo para enlaces en oscuro */
+    --accent-dark-secondary: #8576FF; /* Púrpura vibrante para detalles */
+    
+    /* Variables específicas para elementos */
+    --nombre-claro: #1C1678;
+    --nombre-sombra: rgba(28, 22, 120, 0.3);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-weight: 400;
+    font-size: 17px; /* Base incrementado de 16px a 17px */
+    transition: background-color var(--transition), color var(--transition);
+}
+
+/* Mejoras tipográficas para el cuerpo de texto - 12-18px según especificación */
+p {
+    font-size: 16px; /* Cuerpo de texto incrementado de 15px a 16px */
+    line-height: 1.7;
+    margin-bottom: 1.2em;
+    font-weight: 400;
+}
+
+/* Texto del subtítulo en header - 16-24px según especificación */
+header p {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 24px; /* Subtítulo incrementado de 22px a 24px (máximo del rango) */
+    font-weight: 300;
+    margin: 0.5em 0 1em 0;
+    opacity: 0.95;
+    letter-spacing: 0.5px;
+}
+
+/* Subtítulos adicionales y texto destacado - 16-24px según especificación */
+.subtitulo {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 22px; /* Subtítulo incrementado de 20px a 22px */
+    font-weight: 400;
+    color: var(--primary-alt);
+    margin-bottom: 1em;
+    letter-spacing: 0.3px;
+}
+
+/* Para textos de introducción en secciones - 16-24px según especificación */
+.texto-intro {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 20px; /* Texto intro incrementado de 18px a 20px */
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 1.5em;
+    line-height: 1.6;
+}
+
+/* Listas - 12-18px según especificación */
+ul, ol {
+    font-family: 'Inter', sans-serif; /* Asegurar tipografía del cuerpo */
+    font-size: 16px; /* Cuerpo de texto incrementado de 14px a 16px */
+    line-height: 1.6;
+}
+
+li {
+    font-family: 'Inter', sans-serif; /* Asegurar tipografía */
+    margin-bottom: 0.5em;
+    font-weight: 400;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary);
+    margin: 0 0 0.5em 0;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Títulos - 20-40px según especificación */
+h1 { 
+    font-size: 38px; /* Título principal incrementado de 36px a 38px */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-weight: 700;
+}
+h2 { 
+    font-size: 30px; /* Títulos de sección incrementados de 28px a 30px */
+    border-bottom: 2px solid var(--accent); 
+    padding-bottom: 0.2em;
+    font-weight: 600;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--accent-secondary);
+    border-radius: 2px;
+}
+h3 { 
+    font-size: 24px; /* Títulos de proyectos incrementados de 22px a 24px */
+    font-weight: 600;
+}
+
+a {
+    color: var(--primary); /* Mejor contraste con púrpura oscuro */
+    text-decoration: none;
+    position: relative;
+    transition: all var(--transition);
+    font-family: 'Inter', sans-serif; /* Asegurar tipografía */
+    font-weight: 500; /* Mejor visibilidad */
+}
+
+a:hover {
+    color: var(--accent); /* Azul cielo en hover */
+    transform: translateY(-1px);
+    text-shadow: 0 1px 3px rgba(28, 22, 120, 0.3);
+}
+
+.contenedor {
+    max-width: 960px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header, .cabecera-fondo {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-alt) 50%, var(--accent) 100%);
+    color: white;
+    text-align: center;
+    padding: 2em 1em;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(28, 22, 120, 0.3);
+}
+
+.foto-perfil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 1em 0;
+    object-fit: cover;
+}
+
+/* Botones con nueva paleta */
+button, .btn {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--primary-alt) 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px; /* Botones en rango de subtítulos */
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition);
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover, .btn:hover {
+    background: linear-gradient(135deg, var(--primary-alt) 0%, var(--primary) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(28, 22, 120, 0.3);
+}
+
+/* Modo oscuro para botones */
+body.modo-oscuro button,
+body.modo-oscuro .btn {
+    background: linear-gradient(135deg, var(--accent-dark) 0%, var(--primary-dark) 100%);
+}
+
+body.modo-oscuro button:hover,
+body.modo-oscuro .btn:hover {
+    background: linear-gradient(135deg, var(--accent-dark-secondary) 0%, var(--accent-dark) 100%);
+    box-shadow: 0 4px 15px rgba(163, 255, 214, 0.3);
+}
+
+/* Botón del tema toggle mejorado */
+#theme-toggle {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    padding: 10px;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition);
+}
+
+#theme-toggle:hover {
+    background: rgba(163, 255, 214, 0.3);
+    border-color: var(--accent-secondary);
+    transform: scale(1.1);
+}
+
+body.modo-oscuro #theme-toggle:hover {
+    background: rgba(28, 22, 120, 0.3);
+    border-color: var(--accent-dark-secondary);
+}
+
+/* Secciones */
+section {
+    margin: 3em 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Proyectos */
+.rejilla-proyectos {
+    display: grid;
+    gap: 1.5em;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Estilos para las tarjetas de proyectos */
+.tarjeta-proyecto {
+    position: relative;
+    overflow: hidden;
+    background: var(--surface);
+    padding: 1.2em;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(28, 22, 120, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid rgba(123, 201, 255, 0.1);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenido-tarjeta {
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.contenido-tarjeta h3 {
+    margin-bottom: 0.5em;
+}
+
+.contenido-tarjeta p {
+    flex-grow: 1;
+    margin-bottom: 1em;
+    line-height: 1.5;
+}
+
+.contenido-tarjeta a {
+    margin-top: auto;
+}
+
+.tarjeta-imagen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.tarjeta-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    opacity: 0.08;
+    transition: opacity 0.3s ease;
+}
+
+/* Efectos al hacer hover */
+.tarjeta-proyecto:hover {
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: 0 15px 35px rgba(28, 22, 120, 0.2);
+    border-color: var(--accent);
+}
+
+.tarjeta-proyecto:hover .tarjeta-imagen img {
+    opacity: 0.8;
+}
+    
+.tarjeta-proyecto:hover .contenido-tarjeta {
+    opacity: 0.3;
+}
+
+/* Ajustes para modo oscuro */
+body.modo-oscuro .tarjeta-proyecto:hover .contenido-tarjeta {
+    opacity: 0.4;
+}
+
+body.modo-oscuro .tarjeta-proyecto:hover .tarjeta-imagen img {
+    opacity: 0.6;
+}
+
+/* Asegura que los textos sean legibles */
+.tarjeta-proyecto h3,
+.tarjeta-proyecto p {
+    text-shadow: 0 1px 1px rgba(255,255,255,0.8);
+}
+
+.tarjeta-proyecto a {
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Modo oscuro */
+body.modo-oscuro .tarjeta-proyecto {
+    background: var(--surface-dark);
+}
+
+body.modo-oscuro .tarjeta-proyecto h3,
+body.modo-oscuro .tarjeta-proyecto p {
+    text-shadow: 0 1px 1px rgba(0,0,0,0.8);
+}
+
+body.modo-oscuro .tarjeta-proyecto a {
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Contacto */
+.iconos-sociales {
+    text-align: center;
+}
+
+.iconos-sociales::marker{
+    display: none;
+}
+
+.iconos-sociales a {
+    font-size: 1.4rem;
+    color: var(--accent);
+    margin: 0 0.5em;
+    transition: all var(--transition);
+    text-decoration: none;
+}
+
+.iconos-sociales a:hover {
+    color: var(--primary-alt);
+    transform: scale(1.2) translateY(-2px);
+}
+
+footer {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-alt) 50%, var(--accent) 100%);
+    color: white;
+    text-align: center;
+    padding: 0.75em 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    box-shadow: 0 -2px 10px rgba(28, 22, 120, 0.2);
+    margin-top: 2em;
+}
+
+footer p {
+    margin: 0;
+    font-weight: 400;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos específicos para la sección de contacto */
+#contacto p {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 1.2em;
+}
+
+#contacto li {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    margin-bottom: 0.8em;
+}
+
+/* Enlaces específicos en contacto con mejor contraste */
+#contacto a {
+    color: var(--primary);
+    font-weight: 600; /* Mayor peso para mejor legibilidad */
+    text-decoration: underline;
+}
+
+#contacto a:hover {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* Modo oscuro para contacto */
+body.modo-oscuro #contacto p {
+    color: var(--text-dark);
+}
+
+body.modo-oscuro #contacto a {
+    color: var(--accent-dark);
+    font-weight: 600;
+}
+
+body.modo-oscuro #contacto a:hover {
+    color: var(--primary-dark);
+}
+
+/* Modo Oscuro */
+body.modo-oscuro {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+body.modo-oscuro h1,
+body.modo-oscuro h2,
+body.modo-oscuro h3 {
+    color: var(--primary-dark);
+}
+
+body.modo-oscuro header,
+body.modo-oscuro .cabecera-fondo {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--accent-dark) 50%, var(--accent-dark-secondary) 100%);
+    box-shadow: 0 4px 20px rgba(163, 255, 214, 0.3);
+}
+
+body.modo-oscuro .tarjeta-proyecto {
+    background: var(--surface-dark);
+}
+
+body.modo-oscuro a {
+    color: var(--accent-dark);
+    font-weight: 500; /* Mejor visibilidad en modo oscuro */
+}
+
+body.modo-oscuro a:hover {
+    color: var(--primary-dark); /* Verde menta en hover para mejor contraste */
+    text-shadow: 0 1px 3px rgba(163, 255, 214, 0.5);
+}
+
+body.modo-oscuro footer {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--accent-dark) 50%, var(--accent-dark-secondary) 100%);
+    box-shadow: 0 -2px 10px rgba(163, 255, 214, 0.2);
+}
+
+/* Subtítulos en modo oscuro */
+body.modo-oscuro .subtitulo {
+    color: var(--accent-dark);
+}
+
+body.modo-oscuro .texto-intro {
+    color: var(--text-dark);
+}
+
+body.modo-oscuro h2::after {
+    background: var(--accent-dark-secondary);
+}
+
+body.modo-oscuro .iconos-sociales a {
+    color: var(--accent-dark);
+}
+
+body.modo-oscuro .iconos-sociales a:hover {
+    color: var(--accent-dark-secondary);
+}
+
+/* Animaciones */
+section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tarjeta-proyecto {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    will-change: opacity, transform;
+}
+
+.tarjeta-proyecto.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animaciones específicas por sección */
+#sobreMi { transform: translateY(-50px); }
+#habilidades { transform: translateY(-50px); }
+#contacto { transform: translateY(-50px); }
+#sobreMi.visible,
+#habilidades.visible,
+#contacto.visible {
+    transform: none;
+}
+
+#contacto.visible {
+    margin-bottom: 0;
+}
+
+/* Nombre en tema claro - Título principal más grande */
+.nombre {
+    color: var(--nombre-claro);
+    text-shadow: 
+        2px 2px 0px var(--nombre-sombra),
+        -1px -1px 0px rgba(255,255,255,0.7);
+    letter-spacing: 1px;
+    font-weight: 800;
+    font-size: 40px; /* Máximo del rango 20-40px para impacto */
+    transform: translateY(-5px);
+    margin-bottom: 0.3em;
+}
+
+/* Enlaces de proyectos como botones */
+.tarjeta-proyecto a {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--primary-alt) 100%);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1em;
+    transition: all var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.tarjeta-proyecto a:hover {
+    background: linear-gradient(135deg, var(--primary-alt) 0%, var(--primary) 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(28, 22, 120, 0.3);
+}
+
+body.modo-oscuro .tarjeta-proyecto a {
+    background: linear-gradient(135deg, var(--accent-dark) 0%, var(--primary-dark) 100%);
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+body.modo-oscuro .tarjeta-proyecto a:hover {
+    background: linear-gradient(135deg, var(--accent-dark-secondary) 0%, var(--accent-dark) 100%);
+    box-shadow: 0 3px 10px rgba(163, 255, 214, 0.3);
+}
+
+/* Media Queries para tablets */
+@media (max-width: 1024px) {
+    .rejilla-proyectos {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+}
+
+/* Media Queries para móviles */
+@media (max-width: 768px) {
+    /* Hacer las cards de una sola columna en móvil */
+    .rejilla-proyectos {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .tarjeta-proyecto {
+        padding: 1rem;
+    }
+}
+
+/* Media Queries para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .contenedor {
+        padding: 0 15px;
+    }
+    
+    .rejilla-proyectos {
+        gap: 0.75rem;
+    }
+    
+    .tarjeta-proyecto {
+        padding: 0.75rem;
+    }
+}

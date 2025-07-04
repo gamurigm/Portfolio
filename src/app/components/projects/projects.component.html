@@ -1,0 +1,16 @@
+<section id="proyectos">
+  <h2>Proyectos Destacados</h2>
+  <p class="subtitulo">Una selección de mis trabajos más significativos en desarrollo de software</p>
+  <div class="rejilla-proyectos">
+    <article class="tarjeta-proyecto" *ngFor="let project of projects$ | async">
+      <div class="tarjeta-imagen">
+        <img [src]="project.imageUrl" [alt]="project.title">
+      </div>
+      <div class="contenido-tarjeta">
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.description }}</p>
+        <a [href]="project.projectUrl" target="_blank">Código Fuente</a>
+      </div>
+    </article>
+  </div>
+</section>
